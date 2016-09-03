@@ -9,17 +9,13 @@ public class scr_Bullet : MonoBehaviour {
 
 	void Start ()
     {
-        //Debug.Log(_Target);
         Rigidbody rb_RB = gameObject.AddComponent<Rigidbody>();
-
-
     }
 
     void Update()
     {
         if (_Target != null)
         {
-            //если юнит уже уничтожен то..
             transform.position = Vector3.MoveTowards(transform.position, _Target.transform.position, 4 * Time.deltaTime);
         }
         else { DestroyObject(gameObject); }

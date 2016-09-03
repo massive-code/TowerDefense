@@ -51,7 +51,9 @@
      <Compile Include="Assets\Level1\Script\Unit\scr_Unit.cs" />
      <Compile Include="Assets\Level1\Script\cl_GameData.cs" />
      <Compile Include="Assets\Level1\Script\cl_Wave.cs" />
+     <Compile Include="Assets\Level1\Script\scr_Exit.cs" />
      <Compile Include="Assets\Level1\Script\scr_GameEngine.cs" />
+     <Compile Include="Assets\Level1\Script\scr_StartStop.cs" />
      <Compile Include="Assets\Level1\Script\scr_camera.cs" />
      <Compile Include="Assets\Level1\tower\Script\cl_TowerData.cs" />
      <Compile Include="Assets\Level1\tower\Script\scr_Bullet.cs" />

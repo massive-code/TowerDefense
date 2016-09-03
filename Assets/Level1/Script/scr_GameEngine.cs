@@ -4,9 +4,23 @@ using System.Collections.Generic;
 
 public class scr_GameEngine : MonoBehaviour {
 
+    public bool pb_Pause = true;
+
+
+    [System.Serializable]
+    public struct str_UserInterface
+    {
+        public GameObject Money;
+        public GameObject Health;
+        public GameObject StartStop;
+        public GameObject Exit;
+    }
+    public str_UserInterface l_UI = new str_UserInterface();
+
     public cl_GameData _cl_GD = new cl_GameData();
 
     public GameObject pgo_House;
+    public int pi_HouseHealth = 5;
 
     public List<cl_Wave> _cl_Wave = new List<cl_Wave>();
     public List<GameObject> list_UnitLocations = new List<GameObject>();
@@ -42,6 +56,8 @@ public class scr_GameEngine : MonoBehaviour {
         v_CreateHouse();
         v_CreateTowerPlace();
         //v_CreateTowers();
+
+        
     }
 
     void v_CreateTowerPlace()
@@ -62,15 +78,21 @@ public class scr_GameEngine : MonoBehaviour {
 
     void v_CreateHouse()
     {
-        Instantiate(pgo_House, list_UnitLocations[list_UnitLocations.Count-1].transform.position, Quaternion.identity);
+        pgo_House = (GameObject)Instantiate(pgo_House, list_UnitLocations[list_UnitLocations.Count-1].transform.position, Quaternion.identity);
     }
 
     void Update()
     {
-        if (CreateUnits == true)
+        if (pb_Pause == false)
         {
-            v_WaveTimer();
+            if (CreateUnits == true)
+            {
+                v_WaveTimer();
+            }
         }
+            l_UI.Money.GetComponent<TextMesh>().text = "MONEY: " + _cl_GD.pi_Money;
+            l_UI.Health.GetComponent<TextMesh>().text = "HEALTH: " + pi_HouseHealth;
+        
     }
 
     void v_WaveTimer()

@@ -4,6 +4,7 @@ using System.Collections;
 public class scr_TowerPlace : MonoBehaviour
 {
     scr_GameEngine l_GameEngine;
+    bool b_TowerStay = false;
 
     void Start()
     {
@@ -22,10 +23,15 @@ public class scr_TowerPlace : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (l_GameEngine._cl_GD.pi_Money > l_GameEngine._cl_GD.pi_TowerCost)
+        if (b_TowerStay == false)
         {
-            Instantiate(l_GameEngine._goTower, gameObject.transform.position, Quaternion.identity);
-            l_GameEngine._cl_GD.pi_Money -= l_GameEngine._cl_GD.pi_TowerCost;
+            if (l_GameEngine._cl_GD.pi_Money >= l_GameEngine._cl_GD.pi_TowerCost)
+            {
+                Instantiate(l_GameEngine._goTower, gameObject.transform.position, Quaternion.identity);
+                l_GameEngine._cl_GD.pi_Money -= l_GameEngine._cl_GD.pi_TowerCost;
+                b_TowerStay = true;
+            }
         }
+
     }
 }

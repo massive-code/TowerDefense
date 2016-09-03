@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[System.Serializable]
 public class cl_GameData  {
 
     public bool pb_CreateUnits;

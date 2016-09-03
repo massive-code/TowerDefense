@@ -15,35 +15,37 @@ public class scr_Tower : MonoBehaviour
 
     void Update()
     {
-        if (_bAttack == true)
+        if (_scrGE.pb_Pause == false)
         {
-            for (int i = 0; i<_scrGE.list_Units.Count; i++)
+            if (_bAttack == true)
             {
-                if (Vector3.Distance(transform.position, _scrGE.list_Units[i].transform.position) < _clTD.distance)
+                for (int i = 0; i < _scrGE.list_Units.Count; i++)
                 {
-                    //GameObject _BulletObj = _clTD.bulletpref;
-                    //scr_Bullet _BulletScr = _BulletObj.GetComponent<scr_Bullet>();
-                    //_BulletScr._Target = _scrGE.list_Units[i];
-                    //_BulletObj = (GameObject)Instantiate(_BulletObj, _clTD.bulletspawn.transform.position, Quaternion.identity);
+                    if (Vector3.Distance(transform.position, _scrGE.list_Units[i].transform.position) < _clTD.distance)
+                    {
+                        //GameObject _BulletObj = _clTD.bulletpref;
+                        //scr_Bullet _BulletScr = _BulletObj.GetComponent<scr_Bullet>();
+                        //_BulletScr._Target = _scrGE.list_Units[i];
+                        //_BulletObj = (GameObject)Instantiate(_BulletObj, _clTD.bulletspawn.transform.position, Quaternion.identity);
 
-                    //GameObject _BulletObj = (GameObject)Instantiate(_clTD.bulletpref, _clTD.bulletspawn.transform.position, Quaternion.identity);
-                    //scr_Bullet _BulletScr = _BulletObj.GetComponent<scr_Bullet>();
-                    //_BulletScr._Target = _scrGE.list_Units[i];
-                    //_BulletScr.f_Speed = _clTD.bltspeed;
-                    //_BulletScr.i_Damage = _clTD.damage;
+                        //GameObject _BulletObj = (GameObject)Instantiate(_clTD.bulletpref, _clTD.bulletspawn.transform.position, Quaternion.identity);
+                        //scr_Bullet _BulletScr = _BulletObj.GetComponent<scr_Bullet>();
+                        //_BulletScr._Target = _scrGE.list_Units[i];
+                        //_BulletScr.f_Speed = _clTD.bltspeed;
+                        //_BulletScr.i_Damage = _clTD.damage;
 
-                    Debug.Log("bullet");
-                    GameObject _BulletObj = _clTD.bulletpref;
-                    scr_Bullet _BulletScr = _BulletObj.GetComponent<scr_Bullet>();
-                    _BulletScr._Target = _scrGE.list_Units[i];
-                    _BulletScr.f_Speed = _clTD.bltspeed;
-                    _BulletScr.i_Damage = _clTD.damage;
+                        GameObject _BulletObj = _clTD.bulletpref;
+                        scr_Bullet _BulletScr = _BulletObj.GetComponent<scr_Bullet>();
+                        _BulletScr._Target = _scrGE.list_Units[i];
+                        _BulletScr.f_Speed = _clTD.bltspeed;
+                        _BulletScr.i_Damage = _clTD.damage;
 
-                    Instantiate(_BulletObj, _clTD.bulletspawn.transform.position, Quaternion.identity);
+                        Instantiate(_BulletObj, _clTD.bulletspawn.transform.position, Quaternion.identity);
 
 
-                    _bAttack = false;
-                    _bReload = true;
+                        _bAttack = false;
+                        _bReload = true;
+                    }
                 }
             }
         }

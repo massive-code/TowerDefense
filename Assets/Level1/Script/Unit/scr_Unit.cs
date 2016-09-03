@@ -24,32 +24,36 @@ public class scr_Unit : MonoBehaviour {
             case "Unit_3": _str_UD = _cl_UD.pstr_U3(); break;
         }
 	}
-	
-	void Update ()
+
+    void Update()
     {
-        if (move == true)
+        if (_scr_GE.pb_Pause == false)
         {
-            if (key <= _scr_GE.list_UnitLocations.Count - 1)
+            if (move == true)
             {
-                if (Vector3.Distance(transform.position, _scr_GE.list_UnitLocations[key].transform.position) > 0)
+                if (key <= _scr_GE.list_UnitLocations.Count - 1)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, _scr_GE.list_UnitLocations[key].transform.position, _str_UD.speed*Time.deltaTime);
+                    if (Vector3.Distance(transform.position, _scr_GE.list_UnitLocations[key].transform.position) > 0)
+                    {
+                        transform.position = Vector3.MoveTowards(transform.position, _scr_GE.list_UnitLocations[key].transform.position, _str_UD.speed * Time.deltaTime);
+                    }
+                    else
+                    {
+                        key++;
+                    }
                 }
                 else
                 {
-                    key++;
+                    move = false;
                 }
             }
-            else
+
+            if (_str_UD.health <= 0)
             {
-                move = false;
+                _scr_GE._cl_GD.pi_Money += 5;
+                _scr_GE.list_Units.Remove(gameObject);
+                DestroyObject(gameObject);
             }
         }
-
-        if (_str_UD.health <= 0)
-        {
-            _scr_GE.list_Units.Remove(gameObject);
-            DestroyObject(gameObject);
-        }
-	}
+    }
 }
