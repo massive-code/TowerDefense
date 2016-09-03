@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D5374558-ECB5-BED4-A112-BFCB5B355C8B}</ProjectGuid>
+    <ProjectGuid>{17BB7AF0-A1AD-DCE4-09CE-1D3A3635465B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,6 +53,10 @@
      <Compile Include="Assets\Level1\Script\cl_Wave.cs" />
      <Compile Include="Assets\Level1\Script\scr_GameEngine.cs" />
      <Compile Include="Assets\Level1\Script\scr_camera.cs" />
+     <Compile Include="Assets\Level1\tower\Script\cl_TowerData.cs" />
+     <Compile Include="Assets\Level1\tower\Script\scr_Bullet.cs" />
+     <Compile Include="Assets\Level1\tower\Script\scr_Tower.cs" />
+     <Compile Include="Assets\Level1\tower\Script\scr_TowerPlace.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

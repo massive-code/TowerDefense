@@ -18,7 +18,7 @@ public class cl_UnitData
     public str_Unit pstr_U1()
     {
         str_Unit lstr_Temp = new str_Unit();
-        lstr_Temp.health = 1;
+        lstr_Temp.health = 2;
         lstr_Temp.name = "unit_1";
         lstr_Temp.speed = 2F;
         lstr_Temp.armor = 1;
@@ -32,7 +32,7 @@ public class cl_UnitData
     public str_Unit pstr_U2()
     {
         str_Unit lstr_Temp = new str_Unit();
-        lstr_Temp.health = 2;
+        lstr_Temp.health = 3;
         lstr_Temp.name = "unit_2";
         lstr_Temp.speed = 3F;
         lstr_Temp.armor = 2;
@@ -46,9 +46,9 @@ public class cl_UnitData
     public str_Unit pstr_U3()
     {
         str_Unit lstr_Temp = new str_Unit();
-        lstr_Temp.health = 3;
+        lstr_Temp.health = 4;
         lstr_Temp.name = "unit_3;";
-        lstr_Temp.speed = 5F;
+        lstr_Temp.speed = 4F;
         lstr_Temp.armor = 3;
         lstr_Temp.damage = 3;
         return lstr_Temp;

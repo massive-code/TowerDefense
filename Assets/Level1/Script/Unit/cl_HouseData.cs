@@ -6,7 +6,7 @@ public class cl_HouseData {
 
     public struct str_HouseData
     {
-        public int pi_Health { get; set; }
+        public int pi_Health;
     }
     public str_HouseData _str_ManageData()
     {

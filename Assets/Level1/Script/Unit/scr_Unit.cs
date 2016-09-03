@@ -45,5 +45,11 @@ public class scr_Unit : MonoBehaviour {
                 move = false;
             }
         }
+
+        if (_str_UD.health <= 0)
+        {
+            _scr_GE.list_Units.Remove(gameObject);
+            DestroyObject(gameObject);
+        }
 	}
 }

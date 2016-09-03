@@ -4,13 +4,17 @@ using System.Collections.Generic;
 
 public class scr_GameEngine : MonoBehaviour {
 
-    cl_GameData _cl_GD = new cl_GameData();
+    public cl_GameData _cl_GD = new cl_GameData();
 
     public GameObject pgo_House;
 
     public List<cl_Wave> _cl_Wave = new List<cl_Wave>();
     public List<GameObject> list_UnitLocations = new List<GameObject>();
     public List<GameObject> list_Units = new List<GameObject>();
+
+    public GameObject _goTower;
+    public List<GameObject> list_TowerLocations = new List<GameObject>();
+    public GameObject go_TowerPlace;
 
     int CurrentWave;
     int CurrentUnit;
@@ -32,11 +36,29 @@ public class scr_GameEngine : MonoBehaviour {
         /////////////////////
         if (_cl_GD.pb_LockCamera == false)
         {
-            pf_CameraSpeed = _cl_GD.pf_CamersSpeed;
+            pf_CameraSpeed = _cl_GD.pf_CameraSpeed;
         }
         else { pf_CameraSpeed = 0; }
         v_CreateHouse();
-	}
+        v_CreateTowerPlace();
+        //v_CreateTowers();
+    }
+
+    void v_CreateTowerPlace()
+    {
+        foreach (GameObject go_temp in list_TowerLocations)
+        {
+            Instantiate(go_TowerPlace, go_temp.transform.position, Quaternion.identity);
+        }
+    }
+
+    void v_CreateTowers()
+    {
+        foreach (GameObject go_temp in list_TowerLocations)
+        {
+            Instantiate(_goTower, go_temp.transform.position, Quaternion.identity);
+        }
+    }
 
     void v_CreateHouse()
     {
@@ -69,7 +91,7 @@ public class scr_GameEngine : MonoBehaviour {
         {
             if (_b_ShowWaveName == true)
             {
-                Debug.Log(_cl_Wave[CurrentWave].Name);
+                //Debug.Log(_cl_Wave[CurrentWave].Name);
                 _b_ShowWaveName = false;
             }
 
@@ -85,7 +107,7 @@ public class scr_GameEngine : MonoBehaviour {
 
         else
         {
-            Debug.Log("END");
+            //Debug.Log("END");
             CreateUnits = false;
         }
     }
@@ -94,7 +116,7 @@ public class scr_GameEngine : MonoBehaviour {
     {
         if (CurrentUnit <= _cl_Wave[CurrentWave].Units.Count-1)
         {
-            Debug.Log(_cl_Wave[CurrentWave].Units[CurrentUnit].name);
+            //Debug.Log(_cl_Wave[CurrentWave].Units[CurrentUnit].name);
             ///////////////////
             v_CreateObjects();
             ///////////////////
